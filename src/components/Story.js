@@ -1,9 +1,17 @@
-import React from 'react'
+import React,{useEffect} from 'react'
 import Header from './Header'
+import Parallax from 'parallax-js'
 
 const Story = () => {
+	useEffect(() => {
+		const scene = document.querySelector('#scene')
+		const parallaxInstance = new Parallax(scene, {
+			relativeInput: true,
+		})
+		parallaxInstance.friction(0.2, 0.2)
+	}, [])
 	return (
-		<div className="story" data-depth="0.2">
+		<div className="story" data-depth="0.2" data-relative-input="true" id="scene">
 			<Header />
 			<p className="story__paragraph">
 				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam
