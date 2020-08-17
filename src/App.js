@@ -1,9 +1,12 @@
-import React, { useEffect } from 'react'
-import './App.css'
+import React, { useEffect, useState } from 'react'
+import './App.scss'
 import Parallax from 'parallax-js'
-import Header from './components/Header'
+import LoginForm from './components/LoginForm'
+import Story from './components/Story'
 
 function App() {
+	const [isAuth, setAuthStatus] = useState(true)
+
 	useEffect(() => {
 		const scene = document.querySelector('.scene')
 		const parallaxInstance = new Parallax(scene, {
@@ -11,12 +14,16 @@ function App() {
 		})
 		parallaxInstance.friction(0.2, 0.2)
 	}, [])
+
+	const toggleAuth = () => {
+		setAuthStatus(!isAuth)
+		console.log('2')
+	}
+
 	return (
 		<div className="App">
 			<div data-relative-input="true" id="scene" className="scene">
-				<Header />
-				<div data-depth="0.2">My first Layer!</div>
-				<div data-depth="0.6">My second Layer!</div>
+				{isAuth ? <Story /> : <LoginForm toggleAuth={toggleAuth} />}
 			</div>
 		</div>
 	)
