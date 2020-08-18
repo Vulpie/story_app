@@ -7,10 +7,10 @@ import { AuthContext } from '../contexts/AuthContext'
 const MainScreen = () => {
     const {isAuthenticated} = useContext(AuthContext)
     return (
-         <>
+        <>
 			{isAuthenticated ? <Story /> : <LoginScreen/>}		
 				<Freepik/>
     </> );
 }
- 
+
 export default MainScreen;
