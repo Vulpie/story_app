@@ -22,7 +22,7 @@ $border-rad: 15px;
 }
 
 @mixin global-input {
-	padding: 5px;
+	padding: 10px 5px;
 	border-radius:	$border-rad;
 	margin: 15px 0;
 }
@@ -49,11 +49,14 @@ $border-rad: 15px;
 
 .login-screen{
 	@include global-full_screen_container;
-	background-image: url('./assets/backgrounds/bgc3.jpg');
+	background-image: url('./assets/backgrounds/bgc2.jpg');
+	display: flex;
+	align-items: center;
+	justify-content: center;
 
 	&__form{
 		@include global-container;	
-
+		width: 50%;
 		display: flex;
 		flex-direction: column;
 		justify-content: center;

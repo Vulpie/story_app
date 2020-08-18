@@ -1,9 +1,12 @@
-import React from 'react'
+import React, {useContext} from 'react'
+import { AuthContext } from '../../contexts/AuthContext'
 
 const LoginForm = () => {
+	const {dispatch: authDispatch } = useContext(AuthContext)
 	const switchAuth = (e) => {
 		e.preventDefault()
 		console.log('1')
+		authDispatch({type: 'AUTHENTICATE_USER'})
 	}
 	return (
 		<form className="login-screen__form" onSubmit={switchAuth}>

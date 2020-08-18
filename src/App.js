@@ -1,16 +1,15 @@
-import React, {  useState } from 'react'
+import React from 'react'
 import './App.scss'
-import Story from './components/Story'
-import LoginScreen from './components/login/LoginScreen'
-import Freepik from './components/fixed/Freepik'
+import AuthContextProvider from './contexts/AuthContext'
+import MainScreen from './components/MainScreen'
+
 
 function App() {
-	const [isAuth, setAuthStatus] = useState(false)
-
 	return (
 		<div className="App">
-				{isAuth ? <Story /> : <LoginScreen/>}
-				<Freepik/>
+			<AuthContextProvider>
+				<MainScreen/>
+			</AuthContextProvider>
 		</div>
 	)
 }
