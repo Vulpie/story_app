@@ -1,9 +1,14 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
+import StoryParagraph from './StoryParagraph'
 
-const StoryContent = () => {
-	const [story, setStory] = useState([])
-	useEffect(() => {}, [])
-	return <div></div>
+const StoryContent = ({ story }) => {
+	return (
+		<div className="story__content" data-depth="0.2">
+			{story.content.map((paragraph, id) => (
+				<StoryParagraph paragraph={paragraph} key={id} />
+			))}
+		</div>
+	)
 }
 
 export default StoryContent

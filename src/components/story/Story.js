@@ -1,8 +1,8 @@
 import React, { useEffect, useContext } from 'react'
 import Parallax from 'parallax-js'
-import StoryHeader from './Header'
-import StoryParagraph from './StoryParagraph'
+import StoryHeader from './StoryHeader'
 import { StoryContext } from '../../contexts/StoryContext'
+import StoryContent from './StoryContent'
 
 const Story = () => {
 	const { story } = useContext(StoryContext)
@@ -20,10 +20,8 @@ const Story = () => {
 			data-relative-input="true"
 			id="scene"
 		>
-			<StoryHeader />
-			{story.content.map((paragraph, id) => (
-				<StoryParagraph paragraph={paragraph} key={id} />
-			))}
+			<StoryHeader title={story.title} author={story.author} />
+			<StoryContent story={story} />
 		</div>
 	)
 }
