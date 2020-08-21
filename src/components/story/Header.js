@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Header = () => {
+const StoryHeader = () => {
 	return (
 		<div className="story__header" data-depth="0.2">
 			<h1 className="story__header_title">
@@ -10,4 +10,4 @@ const Header = () => {
 	)
 }
 
-export default Header
+export default StoryHeader

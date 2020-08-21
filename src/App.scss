@@ -1,5 +1,5 @@
 $base-color: rgb(167, 164, 164);
-$base-color-alpha: rgba(167, 164, 164,0.4);
+$base-color-alpha: rgba(167, 164, 164, 0.4);
 $accent-color: rgb(24, 204, 24);
 $border-rad: 15px;
 
@@ -14,7 +14,7 @@ $border-rad: 15px;
 	padding: 5%;
 }
 
-@mixin global-container{
+@mixin global-container {
 	background-color: $base-color-alpha;
 	padding: 20px;
 	border-radius: $border-rad;
@@ -23,7 +23,7 @@ $border-rad: 15px;
 
 @mixin global-input {
 	padding: 10px 5px;
-	border-radius:	$border-rad;
+	border-radius: $border-rad;
 	margin: 15px 0;
 }
 
@@ -32,7 +32,6 @@ $border-rad: 15px;
 	border-radius: $border-rad;
 	margin: 15px 0;
 	width: fit-content;
-
 }
 
 @mixin global-label {
@@ -47,36 +46,36 @@ $border-rad: 15px;
 	height: 100vh;
 }
 
-.login-screen{
+.login-screen {
 	@include global-full_screen_container;
 	background-image: url('./assets/backgrounds/bgc2.jpg');
 	display: flex;
 	align-items: center;
 	justify-content: center;
 
-	&__form{
-		@include global-container;	
+	&__form {
+		@include global-container;
 		width: 50%;
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
 
-		&_label{
+		&_label {
 			@include global-label;
 			align-self: center;
 		}
-	
-		&_input{
+
+		&_input {
 			@include global-input;
 			width: 50%;
 			align-self: center;
 		}
-	
-		&_button{
+
+		&_button {
 			@include global-button;
-			align-self: center;	
+			align-self: center;
 		}
-		&_button:hover{
+		&_button:hover {
 			cursor: pointer;
 		}
 	}
@@ -100,23 +99,29 @@ $border-rad: 15px;
 			font-size: 2.5rem;
 		}
 	}
+
+	&__paragraph {
+		box-sizing: border-box;
+		padding: 15px;
+		text-align: justify;
+	}
 }
 
-.fixed-element{
+.fixed-element {
 	position: fixed;
 	right: 1%;
 	bottom: 1%;
-	a{
+	a {
 		text-decoration: none;
 	}
-	&__btn{
+	&__btn {
 		@include global-button;
 		text-decoration: none;
 		color: black;
 		background-color: $base_color-alpha;
 	}
 
-	&__btn:hover{
+	&__btn:hover {
 		background-color: $base_color;
 	}
 }
