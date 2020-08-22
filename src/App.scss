@@ -40,14 +40,82 @@ $border-rad: 15px;
 	margin: 15px 0;
 }
 
+@mixin global-page-title {
+	font-size: 2.4rem;
+	font-weight: 500;
+	margin: 15px 0;
+}
+
 .App {
 	overflow: hidden;
 	width: 100vw;
 	height: 100vh;
 }
 
-.profile {
-	@include global-container;
+.dashboard {
+	@include global-full_screen_container;
+
+	&__navbar {
+		width: 100%;
+		display: flex;
+		flex-direction: row;
+		&_item {
+			width: fit-content;
+			padding: 10px 20px;
+		}
+		&_item:hover {
+			cursor: pointer;
+			background-color: grey;
+			color: white;
+		}
+	}
+
+	&__profile {
+		@include global-container;
+		width: 80%;
+		&_username {
+			font-size: 2.5rem;
+			font-style: italic;
+		}
+		&_detail {
+			font-size: 1.2rem;
+			&_detail {
+				&_label {
+					font-weight: 500;
+				}
+				&_value {
+					font-style: italic;
+				}
+			}
+		}
+	}
+
+	&__create {
+		@include global-container;
+		width: 80%;
+		&_page-title {
+			@include global-page-title;
+		}
+		&_form {
+			display: flex;
+			flex-direction: column;
+			&_label {
+				@include global-label;
+			}
+			&_input {
+				@include global-input;
+				width: 50%;
+			}
+			&_btn {
+				@include global-button;
+				background-color: $accent-color;
+			}
+			&_btn:hover {
+				cursor: pointer;
+				background-color: $base-color;
+			}
+		}
+	}
 }
 
 .login-screen {
@@ -86,8 +154,6 @@ $border-rad: 15px;
 }
 
 .story {
-	background-image: url('./assets//backgrounds/bgc2.jpg');
-	@include global-full_screen_container;
 	display: flex;
 	flex-direction: column;
 	align-items: center;

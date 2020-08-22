@@ -6,6 +6,11 @@ import UserContextProvider from '../../contexts/UserContext'
 import StoryContextProvider from '../../contexts/StoryContext'
 import CreateStory from '../story/CreateStory'
 
+import bgc1 from '../../assets/backgrounds/bgc1.jpg'
+import bgc2 from '../../assets/backgrounds/bgc2.jpg'
+import bgc3 from '../../assets/backgrounds/bgc3.jpg'
+import bgc4 from '../../assets/backgrounds/bgc4.jpg'
+
 const PAGES = {
 	USER_PROFILE: 'user_profile',
 	STORY_LIST: 'story_list',
@@ -13,9 +18,37 @@ const PAGES = {
 	READ_STORY: 'read_story',
 }
 
+const SOURCES = {
+	VALLEY: 'valley',
+	MOUNTAIN_LAKE: 'mountain_lake',
+	MOUNTAINS: 'mountains',
+	LAKE: 'lake',
+}
+
 const Dashboard = () => {
 	const [page, setPage] = useState(PAGES.USER_PROFILE)
 	const [view, setView] = useState()
+	const [background, setBackground] = useState()
+	const [backgroundSRC, setBackgroundSRC] = useState()
+
+	useEffect(() => {
+		switch (background) {
+			case SOURCES.VALLEY:
+				setBackgroundSRC(bgc1)
+				break
+			case SOURCES.MOUNTAIN_LAKE:
+				setBackgroundSRC(bgc2)
+				break
+			case SOURCES.MOUNTAINS:
+				setBackgroundSRC(bgc3)
+				break
+			case SOURCES.LAKE:
+				setBackgroundSRC(bgc4)
+				break
+			default:
+				setBackgroundSRC(bgc1)
+		}
+	}, [background])
 
 	useEffect(() => {
 		switch (page) {
@@ -25,12 +58,15 @@ const Dashboard = () => {
 						<Profile test={'profile'} />
 					</UserContextProvider>
 				)
+				setBackground('valley')
 				break
 			case PAGES.STORY_LIST:
 				setView(<StoryList />)
+				setBackground('mountain_lake')
 				break
 			case PAGES.CREATE_STORY:
 				setView(<CreateStory />)
+				setBackground('mountains')
 				break
 			case PAGES.READ_STORY:
 				setView(
@@ -38,6 +74,7 @@ const Dashboard = () => {
 						<Story />
 					</StoryContextProvider>
 				)
+				setBackground('lake')
 				break
 			default:
 				setView(
@@ -45,10 +82,13 @@ const Dashboard = () => {
 						<Profile test={'profile'} />
 					</UserContextProvider>
 				)
+				setBackground('valley')
 		}
 	}, [page])
+
+	const bgcStyle = { 'background-image': `url(${backgroundSRC})` }
 	return (
-		<div className="dashboard">
+		<div className="dashboard" style={bgcStyle}>
 			<div className="dashboard__navbar">
 				<div
 					className="dashboard__navbar_item"
