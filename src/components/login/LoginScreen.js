@@ -1,10 +1,12 @@
-import React from 'react';
-import LoginForm from './LoginForm';
+import React from 'react'
+import LoginForm from './LoginForm'
 
 const LoginScreen = () => {
-    return ( <div className="login-screen">
-        <LoginForm/>
-    </div> );
+	return (
+		<div className="unauthorized__login-screen">
+			<LoginForm />
+		</div>
+	)
 }
- 
-export default LoginScreen;
+
+export default LoginScreen

@@ -46,6 +46,21 @@ $border-rad: 15px;
 	margin: 15px 0;
 }
 
+@mixin global-navbar {
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+	&_item {
+		width: fit-content;
+		padding: 10px 20px;
+	}
+	&_item:hover {
+		cursor: pointer;
+		background-color: grey;
+		color: white;
+	}
+}
+
 .App {
 	overflow: hidden;
 	width: 100vw;
@@ -56,18 +71,7 @@ $border-rad: 15px;
 	@include global-full_screen_container;
 
 	&__navbar {
-		width: 100%;
-		display: flex;
-		flex-direction: row;
-		&_item {
-			width: fit-content;
-			padding: 10px 20px;
-		}
-		&_item:hover {
-			cursor: pointer;
-			background-color: grey;
-			color: white;
-		}
+		@include global-navbar;
 	}
 
 	&__profile {
@@ -118,37 +122,42 @@ $border-rad: 15px;
 	}
 }
 
-.login-screen {
+.unauthorized {
 	@include global-full_screen_container;
 	background-image: url('./assets/backgrounds/bgc2.jpg');
-	display: flex;
-	align-items: center;
-	justify-content: center;
-
-	&__form {
-		@include global-container;
-		width: 50%;
+	&__navbar {
+		@include global-navbar;
+	}
+	&__login-screen {
 		display: flex;
-		flex-direction: column;
+		align-items: center;
 		justify-content: center;
 
-		&_label {
-			@include global-label;
-			align-self: center;
-		}
-
-		&_input {
-			@include global-input;
+		&_form {
+			@include global-container;
 			width: 50%;
-			align-self: center;
-		}
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
 
-		&_button {
-			@include global-button;
-			align-self: center;
-		}
-		&_button:hover {
-			cursor: pointer;
+			&_label {
+				@include global-label;
+				align-self: center;
+			}
+
+			&_input {
+				@include global-input;
+				width: 50%;
+				align-self: center;
+			}
+
+			&_button {
+				@include global-button;
+				align-self: center;
+			}
+			&_button:hover {
+				cursor: pointer;
+			}
 		}
 	}
 }

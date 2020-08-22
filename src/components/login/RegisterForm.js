@@ -1,7 +1,7 @@
 import React, { useContext } from 'react'
 import { AuthContext } from '../../contexts/AuthContext'
 
-const LoginForm = () => {
+const RegisterForm = () => {
 	const { dispatch: authDispatch } = useContext(AuthContext)
 	const switchAuth = (e) => {
 		e.preventDefault()
@@ -19,6 +19,16 @@ const LoginForm = () => {
 				name="login"
 				className="unauthorized__login-screen_form_input"
 			/>
+
+			<label className="unauthorized__login-screen_form_label">
+				email
+			</label>
+
+			<input
+				type="text"
+				name="email"
+				className="unauthorized__login-screen_form_input"
+			/>
 			<label className="unauthorized__login-screen_form_label">
 				Password
 			</label>
@@ -26,6 +36,15 @@ const LoginForm = () => {
 			<input
 				type="password"
 				name="password"
+				className="unauthorized__login-screen_form_input"
+			/>
+			<label className="unauthorized__login-screen_form_label">
+				Repeat Password
+			</label>
+
+			<input
+				type="password"
+				name="re-password"
 				className="unauthorized__login-screen_form_input"
 			/>
 			<input
@@ -37,4 +56,4 @@ const LoginForm = () => {
 	)
 }
 
-export default LoginForm
+export default RegisterForm
