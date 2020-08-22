@@ -46,6 +46,10 @@ $border-rad: 15px;
 	height: 100vh;
 }
 
+.profile {
+	@include global-container;
+}
+
 .login-screen {
 	@include global-full_screen_container;
 	background-image: url('./assets/backgrounds/bgc2.jpg');

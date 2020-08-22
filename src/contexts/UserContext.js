@@ -4,7 +4,7 @@ export const UserContext = createContext()
 
 const UserContextProvider = (props) => {
 	const [user, dispatch] = useState({
-		nickname: 'Vulpie',
+		username: 'Vulpie',
 		email: 'vulpie_96@kiss.com',
 		age: 66,
 	})
