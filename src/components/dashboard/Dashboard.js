@@ -86,7 +86,7 @@ const Dashboard = () => {
 		}
 	}, [page])
 
-	const bgcStyle = { 'background-image': `url(${backgroundSRC})` }
+	const bgcStyle = { backgroundImage: `url(${backgroundSRC})` }
 	return (
 		<div className="dashboard" style={bgcStyle}>
 			<div className="dashboard__navbar">

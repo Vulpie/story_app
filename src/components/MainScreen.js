@@ -3,6 +3,7 @@ import Freepik from './fixed/Freepik'
 import { AuthContext } from '../contexts/AuthContext'
 import Dashboard from './dashboard/Dashboard'
 import UnauthorizedView from './login/UnauthorizedView'
+import Flash from './fixed/Flash'
 
 const MainScreen = () => {
 	const { isAuthenticated } = useContext(AuthContext)
@@ -10,6 +11,7 @@ const MainScreen = () => {
 		<>
 			{isAuthenticated ? <Dashboard /> : <UnauthorizedView />}
 			<Freepik />
+			<Flash />
 		</>
 	)
 }
